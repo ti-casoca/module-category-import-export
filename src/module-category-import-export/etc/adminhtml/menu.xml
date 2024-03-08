@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Casoca_Importexportcategory::importcategory" title="Import Categories" module="Casoca_Importexportcategory" sortOrder="26" resource="Casoca_Importexportcategory::importcategory"/>
+        <add id="Casoca_Importexportcategory::importexportcategory" title="Import Categories" module="Casoca_Importexportcategory" sortOrder="10" action="casoca_importexportcategory/importcategory/new" resource="Casoca_Importexportcategory::importexportcategory" parent="Casoca_Importexportcategory::importcategory"/>
+        <add id="Casoca_Importexportcategory::exportcategory" title="Export Categories" module="Casoca_Importexportcategory" sortOrder="12" action="casoca_importexportcategory/exportcategory/new" resource="Casoca_Importexportcategory::importexportcategory" parent="Casoca_Importexportcategory::importcategory"/>
+    </menu>
+</config>
