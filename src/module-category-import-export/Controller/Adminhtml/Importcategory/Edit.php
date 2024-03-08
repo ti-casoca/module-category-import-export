@@ -56,7 +56,6 @@ class Edit extends \Magento\Backend\App\Action
     
         $this->_resultPageFactory = $resultPageFactory;
         $this->_resultJsonFactory = $resultJsonFactory;
-        $this->_fileio = $fileio;
         parent::__construct($context);
     }
 
