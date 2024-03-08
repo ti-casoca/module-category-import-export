@@ -1,7 +1,7 @@
 {
   "name": "casoca/module-category-import-export",
-  "description": "CCC",
-  "homepage": "",
+  "description": "Category Import / Export",
+  "homepage": "https://github.com/ti-casoca/module-category-import-export",
   "keywords": [
     "magento",
     "magento2"
