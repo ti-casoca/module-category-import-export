@@ -46,6 +46,7 @@ class NewAction extends \Magento\Backend\App\Action
     {
         $resultForward = $this->_resultForwardFactory->create();
         $resultForward->forward('edit');
+        
         return $resultForward;
     }
 }

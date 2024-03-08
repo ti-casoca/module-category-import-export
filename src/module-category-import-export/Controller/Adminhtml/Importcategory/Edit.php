@@ -80,16 +80,16 @@ class Edit extends \Magento\Backend\App\Action
         $fileio->mkdir($path, '0777', true);
 
         if (!is_writable($imagepath)) {
-            $this->messageManager->addNotice(__('Please make this directory path writable pub/media/catalog/category'));
+            //$this->messageManager->addNotice(__('Please make this directory path writable pub/media/catalog/category'));
         }
         if (!is_writable($path)) {
-            $this->messageManager->addNotice(__('Please make this directory path writable var/categoryimport'));
+            //$this->messageManager->addNotice(__('Please make this directory path writable var/categoryimport'));
         }
         
-        $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Casoca_Importexportcategory::importexportcategory');
-        $resultPage->getConfig()->getTitle()->prepend('Import Categories');
+        $page = $this->resultPageFactory->create();
+        $page->setActiveMenu('Casoca_Importexportcategory::importexportcategory');
+        $page->getConfig()->getTitle()->prepend('Import Categories');
 
-        return $resultPage;
+        return $page;
     }
 }
