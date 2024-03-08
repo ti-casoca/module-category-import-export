@@ -49,7 +49,6 @@ class Edit extends \Magento\Backend\App\Action
         \Magento\Backend\App\Action\Context $context
     ) {
     
-        $this->_backendSession    = $context->getSession();
         $this->_resultPageFactory = $resultPageFactory;
         $this->_resultJsonFactory = $resultJsonFactory;
         $this->_filesystem = $fileSystem;
