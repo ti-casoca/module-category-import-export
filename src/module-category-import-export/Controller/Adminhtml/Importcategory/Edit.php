@@ -15,6 +15,7 @@ namespace Casoca\Importexportcategory\Controller\Adminhtml\Importcategory;
 
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\App\ObjectManager;
+use Magento\Framework\Filesystem;
 
 class Edit extends \Magento\Backend\App\Action
 {
@@ -55,6 +56,7 @@ class Edit extends \Magento\Backend\App\Action
     
         $this->_resultPageFactory = $resultPageFactory;
         $this->_resultJsonFactory = $resultJsonFactory;
+        $this->_fileio = $fileio;
         parent::__construct($context);
     }
 
@@ -85,7 +87,7 @@ class Edit extends \Magento\Backend\App\Action
         
         $path = $fileSystem->getDirectoryRead(DirectoryList::VAR_DIR)->getAbsolutePath('categoryimport');
         $fileio->mkdir($path, '0777', true);
-        
+
         if (!is_writable($imagepath)) {
             $this->messageManager->addNotice(__('Please make this directory path writable pub/media/catalog/category'));
         }
@@ -95,7 +97,6 @@ class Edit extends \Magento\Backend\App\Action
         $resultPage = $this->_resultPageFactory->create();
         $resultPage->setActiveMenu('Casoca_Importexportcategory::importexportcategory');
         $resultPage->getConfig()->getTitle()->prepend('Import Categories');
-
         return $resultPage;
     }
 }
