@@ -50,13 +50,11 @@ class Edit extends \Magento\Backend\App\Action
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
         \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,
         \Magento\Framework\Registry $registry,
-        \Magento\Framework\Filesystem\Io\File $fileio,
         \Magento\Backend\App\Action\Context $context
     ) {
     
         $this->_resultPageFactory = $resultPageFactory;
         $this->_resultJsonFactory = $resultJsonFactory;
-        $this->_fileio = $fileio;
         parent::__construct($context);
     }
 
@@ -77,15 +75,16 @@ class Edit extends \Magento\Backend\App\Action
     {
         /** @var \Magento\Backend\Model\View\Result\Page|\Magento\Framework\View\Result\Page $resultPage */
         $fileSystem = ObjectManager::getInstance()->get(Filesystem::class);
+        $fileio = ObjectManager::getInstance()->get(\Magento\Framework\Filesystem\Io\File::class);
 
         $imagepath = $fileSystem->getDirectoryRead(DirectoryList::MEDIA)->getAbsolutePath('catalog');
-        $this->_fileio->mkdir($imagepath, '0777', true);
+        $fileio->mkdir($imagepath, '0777', true);
         
         $imagepath = $fileSystem->getDirectoryRead(DirectoryList::MEDIA)->getAbsolutePath('catalog/category');
-        $this->_fileio->mkdir($imagepath, '0777', true);
+        $fileio->mkdir($imagepath, '0777', true);
         
         $path = $fileSystem->getDirectoryRead(DirectoryList::VAR_DIR)->getAbsolutePath('categoryimport');
-        $this->_fileio->mkdir($path, '0777', true);
+        $fileio->mkdir($path, '0777', true);
         
         if (!is_writable($imagepath)) {
             $this->messageManager->addNotice(__('Please make this directory path writable pub/media/catalog/category'));
@@ -96,7 +95,7 @@ class Edit extends \Magento\Backend\App\Action
         $resultPage = $this->_resultPageFactory->create();
         $resultPage->setActiveMenu('Casoca_Importexportcategory::importexportcategory');
         $resultPage->getConfig()->getTitle()->prepend('Import Categories');
-        
+
         return $resultPage;
     }
 }
