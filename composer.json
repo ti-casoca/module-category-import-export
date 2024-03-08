@@ -19,7 +19,7 @@
   "prefer-stable" : true,
   "require": {
     "php": "~8.2",
-    "magento/framework": "|103.0.*|104.0.*"
+    "magento/framework": "103.0.*|104.0.*"
   },
   "license": [
     "OSL-3.0",
